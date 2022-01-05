@@ -1,0 +1,36 @@
+► Iniciar o console do Django:
+
+	• No console do windows (dentro do ambiente virtual, na pasta do projeto):
+
+		python manage.py shell
+
+	• Os comandos agora são em python, com recursos do Django também
+
+► Mostrando todas as postagens:
+
+	• No console do windows (Django):
+		
+		from blog.models import Post
+		Post.objects.all()
+
+► Criando um post pelo console:
+
+		from django.contrib.auth.models import User
+		me = User.objects.get(username='mclovin')
+		Post.objects.create(author=me, title='Sample title', text='Test')
+
+
+► Publicando o post criado:
+
+		post = Post.object.get(title="Sample title")
+		post.publish()
+
+
+
+
+
+
+
+
+
+
