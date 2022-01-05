@@ -1,0 +1,71 @@
+► Criar um token de API do PythonAnywhere:
+
+► Inicializar o console Bash do PythonAnywhere:
+
+	• No console do PythonAnywhere:
+
+		pip3.6 install --user pythonanywhere
+
+	• Configurar a aplicação a partir do GitHub automaticamente:
+
+		pa_autoconfigure_django.py https://github.com/<your-github-username>/my-first-blog.git
+
+	• Após o comando, entrará automaticamente no modo de ambiente virtual.
+
+► Criar um superuser (pois os bancos de dados do PC e do PythonAnywhere são diferentes)
+
+	• No console do PythonAnywhere, ambiente virtual:
+
+		python manage.py createsuperuser
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

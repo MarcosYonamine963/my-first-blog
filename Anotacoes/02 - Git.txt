@@ -1,0 +1,76 @@
+https://git-scm.com/
+
+► Instalação:
+
+	• Na etapa onde se pede para que escolha o seu editor, você deve escolher Nano, e na etapa "Ajustando o seu ambiente PATH", escolha "Usar Git e ferramentas opcionais Unix para Prompt de comando Windows" (a opção de baixo). Fora isso, as configurações padrão estão ótimas. "Checkout Windows-style, commit Unix-style line endings" está bom.
+
+
+
+► Inicialização:
+
+	• No console, selecionar a pasta desejada (Web_Python, por exemplo).
+
+	• Na pasta desejada, digite no console:
+
+		git init
+
+	• As configurações de nome e email são realizadas apenas uma vez, não sendo necessário realizar novamente:
+
+		git config --global user.name "Seu Nome"
+
+		git config --global user.email voce@exemplo.com
+
+► Fazer o Git ignorar alguns arquivos: arquivo .gitignore (dentro da pasta Web_Python):
+
+	• O ponto no inicio do nome do arquivo é importante!!!
+
+	• Num editor de texto, adicione o seguinte conteúdo para o arquivo .gitignore
+
+
+*.pyc
+*~
+__pycache__
+myvenv
+db.sqlite3
+/static
+.DS_Store
+
+► Git status:
+
+	git status
+
+► Commit:
+
+	git add --all
+
+	git commit -m "My Web_Python app, first commit"
+
+
+► Subindo o codigo no GitHub
+	
+	• Criar um repositório no Github: Sem readme, sem licença e sem .gitignore (já criamos manualmente)
+
+	• No Colsole:
+
+		git remote add origin https://github.com/<your-github-username>/my-first-blog.git
+
+		git push -u origin master
+
+	• Faça o login que foi solicitado!
+
+	• No repositório do Git, o código já deve estar lá.
+
+
+
+
+
+
+
+
+
+
+		
+
+
+
+

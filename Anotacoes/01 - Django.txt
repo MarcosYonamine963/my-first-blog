@@ -1,0 +1,162 @@
+https://tutorial.djangogirls.org/pt/deploy/
+
+► Mudar o diretorio para o disco D:
+
+		cd /d D:/
+
+► Criar um ambiente virtual:
+
+		python -m venv myenv
+
+► Ativando o ambiente virtual:
+
+		myvenv\Scripts\activate
+
+► Instalando o pacote pip:
+		
+		python -m pip install --upgrade pip
+
+► Instalando Django:
+
+	• Crie um arquivo txt requirements.txt e adicione o texto ao arquivo:
+		
+		Django~=2.2.4
+
+	• Execute no Prompt:
+
+		python -m pip install -r requirements.txt
+		
+► Criando um novo projeto:
+
+	• (sempre no ambiente virtual) Digite no prompt de comandos:
+
+		django-admin.exe startproject mysite .
+	
+	• NÃO SE ESQUEÇA DO PONTO FINAL!!!
+
+► Configurações do site:
+
+	• No arquivo settings.py:
+
+		TIME_ZONE = 'America/Sao_Paulo'
+
+		LANGUAGE_CODE = 'pt-BR'
+
+		STATIC_URL = '/static/'
+		STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+		ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
+
+	• Configurando o Banco de dados (pelo console, digite:)
+
+		python manage.py migrate
+
+► Iniciando o Servidor (pelo console):
+
+		python manage.py runserver
+
+► Visualizar o site:
+
+	• No browser:
+
+		http://127.0.0.1:8000/
+
+► Fechar o servidor:
+
+	• No console, aperte:
+
+		CTRL + C
+
+	• OU
+
+		CTRL + PauseBreak
+
+
+► Criando uma aplicação blog:
+	
+	• No console:
+
+		python manage.py startapp blog
+
+	• No arquivo settings.py (dentro da pasta mysite):
+
+		INSTALLED_APPS = [
+		    'django.contrib.admin',
+		    'django.contrib.auth',
+		    'django.contrib.contenttypes',
+		    'django.contrib.sessions',
+		    'django.contrib.messages',
+		    'django.contrib.staticfiles',
+		    'blog',
+		]
+
+	• Criando Model (no arquivo blog/models.py):
+
+
+
+from django.conf import settings
+from django.db import models
+from django.utils import timezone
+
+
+class Post(models.Model):
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    title = models.CharField(max_length=200)
+    text = models.TextField()
+    created_date = models.DateTimeField(default=timezone.now)
+    published_date = models.DateTimeField(blank=True, null=True)
+
+    def publish(self):
+        self.published_date = timezone.now()
+        self.save()
+
+    def __str__(self):
+        return self.title
+
+
+
+	• Documentação do Django: https://docs.djangoproject.com/en/2.0/ref/models/fields/#field-types
+
+
+
+► Criando Tabelas para o modelo no banco de dados:
+
+	• No console:
+
+		python manage.py makemigrations blog
+
+		python manage.py migrate blog
+
+
+
+► Adicionar, editar e deletar posts: Django Admin:
+
+	• Documentação: https://docs.djangoproject.com/en/2.0/ref/contrib/admin/
+
+	• Editar arquivo blog/adimin.py:
+
+
+
+from django.contrib import admin
+from .models import Post
+
+admin.site.register(Post)
+
+
+
+► Criar superuser (usuário que pode controlar tudo no site)
+
+	• No Console:
+
+		python manage.py createsuperuser
+
+
+
+
+
+
+
+
+
+
+
